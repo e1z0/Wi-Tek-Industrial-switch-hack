@@ -93,7 +93,7 @@ echo "Launcing telnetd..."
 
 Now open /product/product.sh and after the line `trap ""  SIGQUIT`` add the following line:
 ```
-nohup /product/hack.sh &
+nohup /product/hack.sh > /tmp/hack.log 2>&1 &
 ```
 
 That’s all! You can now reboot the device and enjoy the results of your hard work.
