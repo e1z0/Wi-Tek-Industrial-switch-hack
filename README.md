@@ -1,5 +1,7 @@
 # Wi-Tek Industrial Switch Hack
 
+<img width="560" height="432" alt="WI-PMS312GF-I-view1" src="https://github.com/user-attachments/assets/086ac26a-82fe-421e-a6ad-355c6d047699" />
+
 This article demonstrates how to gain root access on inexpensive Chinese **Wi-Tek Industrial Managed Switches**. 
 Wi-Tek (a Chinese OEM/ODM for affordable managed/unmanaged Ethernet switches, often rebranded for ISPs/telecom) runs embedded Linux with BusyBox on Broadcom SoCs (e.g., BCM3302).
 These devices are prone to local privilege escalation via command injection in the restricted CLI, granting root from limited access. 
@@ -39,6 +41,8 @@ ftp put ojoj aa;sh
 
 Executing this command grants root access to the running Linux system.
 
+<img width="560" alt="gaining root" src="https://github.com/user-attachments/assets/8876a9a6-2235-4020-9da0-3c67f401555c" />
+
 ### Background
 
 The technique I'm referring to—"ftp put ojoj aa;sh"—exploits a classic command injection vulnerability in the CLI (Command-Line Interface) of certain network switches 
@@ -50,6 +54,9 @@ where CLI commands are implemented via shell scripts or applets that invoke tool
 **Affected Versions:** This is prevalent in BusyBox <1.30 (thisr example shows v1.4.1 from 2005–2015 builds), where argument parsing in applets like ftpput doesn't strip shell operators. No specific CVE directly matches "ftpput injection," but it's akin to general BusyBox command injection flaws (e.g., CVE-2021-42374 for shell expansions in ash, or broader CLI vulns like Cisco's CVE-2018-0296).
 
 ## More Functions Using a Full-Featured BusyBox
+
+<img width="560" alt="full featured busybox" src="https://github.com/user-attachments/assets/960ce806-c99a-4894-93d9-601afe62e0fb" />
+
 
 Download [busybox-mipsel](https://www.zhiwanyuzhou.com/download/Software/busybox/busybox-mipsel)
 and place it on an FTP server within the same network.
